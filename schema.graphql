@@ -20,10 +20,10 @@ type WordResult {
 type WordsResult {
   status: String!
   errors: [String]
-  words: [Word]
+  word: [Word]
 }
 
 type Query {
   words: WordsResult!
-  word(wordId: ID!): WordsResult!
+  word(wordId: ID!): WordResult!
 }

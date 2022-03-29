@@ -4,12 +4,13 @@ from ariadne.constants import PLAYGROUND_HTML
 from flask import request, jsonify
 from api import app, db
 from api import models
-from api.queries import resolve_words
+from api.queries import resolve_words, resolve_word
 
 
 query = ObjectType("Query")
 
 query.set_field("words", resolve_words)
+query.set_field("word", resolve_word)
 
 type_defs = load_schema_from_path("schema.graphql")
 schema = make_executable_schema(
