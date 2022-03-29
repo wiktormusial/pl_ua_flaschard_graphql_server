@@ -1,3 +1,4 @@
+from random import randrange
 from ariadne import convert_kwargs_to_snake_case
 from .models import Word
 
@@ -29,4 +30,13 @@ def resolve_word(obj, info, word_id):
             "status": "error",
             "error": [f"Word with id={word_id} not found"]
         }
+    return payload
+
+def resolve_random_word(obj, info):
+    random_id = randrange(1, Word.query.count())
+    word = Word.query.get(random_id) 
+    payload = {
+        "status": "succedded",
+        "word": word
+    }
     return payload

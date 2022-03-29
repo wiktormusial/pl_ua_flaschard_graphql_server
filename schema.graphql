@@ -26,4 +26,5 @@ type WordsResult {
 type Query {
   words: WordsResult!
   word(wordId: ID!): WordResult!
+  randomWord: WordResult!
 }
