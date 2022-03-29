@@ -1,0 +1,29 @@
+schema {
+  query: Query
+}
+
+type Word {
+  id: ID!
+  word_pl: String!
+  word_ua: String!
+  desc_pl: String!
+  desc_ua: String!
+  pub_date: String!
+}
+
+type WordResult {
+  status: String!
+  errors: [String]
+  word: Word
+}
+
+type WordsResult {
+  status: String!
+  errors: [String]
+  words: [Word]
+}
+
+type Query {
+  words: WordsResult!
+  word(wordId: ID!): WordsResult!
+}
